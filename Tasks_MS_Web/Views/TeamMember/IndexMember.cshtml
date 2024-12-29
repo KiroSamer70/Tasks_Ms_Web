@@ -1,0 +1,35 @@
+﻿@model IEnumerable<TeamMember>
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+<table class="table">
+    <thead>
+        <tr>
+			<th scope="col">Member ID</th>
+            <th scope="col">Member Name</th>
+            <th scope="col">Member Email</th>
+            <th scope="col">Member Role</th>
+        </tr>
+    </thead>
+    <tbody>
+        @{
+            foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.MemberID</td>
+                    <td>@item.MemberName</td>
+                    <td>@item.MemberEmail</td>
+                    <td>@item.MemberRole</td>
+                    <td>
+                        <a asp-action="EditMember" asp-controller="TeamMember" asp-route-MemberID="@item.MemberID" class="btn btn-outline-success">Edit</a>
+                        <a asp-action="DetailsMember" asp-controller="TeamMember" asp-route-MemberID="@item.MemberID" class="btn btn-outline-primary">Profile</a>
+
+                    </td>
+                </tr>
+            }
+        }
+    </tbody>
+</table>

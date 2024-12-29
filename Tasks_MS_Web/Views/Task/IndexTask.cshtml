@@ -1,0 +1,41 @@
+﻿@model IEnumerable<Tasks>
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">Task title</th>
+            <th scope="col">Description</th>
+            <th scope="col">Status</th>
+            <th scope="col">Periority</th>
+            <th scope="col">Dead Line</th>
+            <th scope="col">Project id</th>
+            <th scope="col">Member id<th>
+        </tr>
+    </thead>
+    <tbody>
+        @{
+            foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.TaskTitle</td>
+                    <td>@item.TaskDescription</td>
+                    <td>@item.TaskStatus</td>
+                    <td>@item.TaskPeriority</td>
+					<td>@item.TaskDeadLine</td>
+					<td>@item.ProjectID</td>
+					<td>@item.MemberID</td>
+					<td>
+						<a asp-action="EditTask" asp-controller="Task" asp-route-TaskID="@item.TaskId" class="btn btn-outline-success">Edit</a>
+						
+                    <td>
+                       
+                </tr>
+            }
+        }
+    </tbody>
+</table>

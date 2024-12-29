@@ -1,0 +1,29 @@
+﻿@model Tasks_MS_Web.Models.Tasks
+
+@{
+    ViewData["Title"] = "Edit Task Status";
+}
+
+<h2>Edit Task Status</h2>
+
+<form asp-action="EditTask" method="post">
+    <div class="form-group">
+        <label asp-for="TaskStatus" class="control-label"></label>
+        <input asp-for="TaskStatus" class="form-control" />
+        <span asp-validation-for="TaskStatus" class="text-danger"></span>
+    </div>
+    <input type="hidden" asp-for="TaskId" />
+    <div class="form-group">
+        <input type="submit" value="Save" class="btn btn-primary" />
+    </div>
+</form>
+
+<div>
+    <a asp-action="IndexTask">Back to List</a>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
